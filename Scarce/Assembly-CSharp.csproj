@@ -64,6 +64,7 @@
     <Compile Include="Assets\script\items n spawners\ammoSpawner.cs" />
     <Compile Include="Assets\script\items n spawners\bullet.cs" />
     <Compile Include="Assets\script\items n spawners\coinObj.cs" />
+    <Compile Include="Assets\script\items n spawners\stmnObj.cs" />
     <Compile Include="Assets\script\items n spawners\xpObj.cs" />
     <Compile Include="Assets\script\misc\defButton.cs" />
     <Compile Include="Assets\script\misc\destObj.cs" />
@@ -72,6 +73,8 @@
     <Compile Include="Assets\script\misc\getTheKey.cs" />
     <Compile Include="Assets\script\misc\igui.cs" />
     <Compile Include="Assets\script\misc\infoPanel.cs" />
+    <Compile Include="Assets\script\misc\store.cs" />
+    <Compile Include="Assets\script\misc\storeInfo.cs" />
     <Compile Include="Assets\script\player scripts\actions.cs" />
     <Compile Include="Assets\script\player scripts\cam.cs" />
     <Compile Include="Assets\script\player scripts\camObj.cs" />

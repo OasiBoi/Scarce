@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class actions : MonoBehaviour
 {
-    public plyrObj player;
     public Rigidbody rb;
 
     // Start is called before the first frame update

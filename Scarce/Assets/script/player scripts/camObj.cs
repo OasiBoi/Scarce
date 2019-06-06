@@ -5,36 +5,31 @@ using UnityEngine;
 public class camObj : MonoBehaviour
 {
     public float rot;
-    public bool rotOk;
-    public Vector2 Limits;
-    private void Update()
+    public float xAxisClamp;
+    public Vector2 limits;
+
+
+    private void Start()
     {
-
-        rot = Mathf.Clamp(transform.rotation.x, -1, 1);
-        if (rot >= Limits.x || rot <= Limits.y)
-        {
-            rotOk = false;
-        }
-        else
-        {
-            rotOk = true;
-        }
-
-        if (!rotOk)
-        {
-            if (rot >= Limits.x)
-            {
-                CamRot(Limits.x - 1, 10);
-            }
-            if (rot <= Limits.y)
-            {
-                CamRot(Limits.y + 1, 10);
-            }
-        }
+        xAxisClamp = 0;
     }
 
     public void CamRot(float r, int spd)
     {
+        rot = r;
+        xAxisClamp += r;
+
+        if (xAxisClamp > limits.x)
+        {
+            xAxisClamp = limits.x;
+            r = 0;
+        }
+        if (xAxisClamp < limits.y)
+        {
+            xAxisClamp = limits.y ;
+            r = 0;
+        }
+
         transform.Rotate(r * spd, 0, 0);
     }
 }

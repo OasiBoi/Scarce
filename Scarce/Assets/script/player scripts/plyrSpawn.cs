@@ -13,11 +13,18 @@ public class plyrSpawn : MonoBehaviour
         if (go.GetComponent<plyrObj>().ID == saveManager.plyr.ID)
         {
             plyr = go.GetComponent<plyrObj>();
+            plyr.stmn = 100;
         }
 
+        StartCoroutine(SpawnPlayer());
+    }
+
+    IEnumerator SpawnPlayer()
+    {
+        yield return new WaitForSeconds(5);
         plyr.transform.position = this.transform.position;
-        plyr.stmn = 100;
         Instantiate(plyr.plyrbod, plyr.transform);
+
     }
 
     private void OnDestroy()
