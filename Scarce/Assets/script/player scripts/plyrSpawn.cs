@@ -13,6 +13,14 @@ public class plyrSpawn : MonoBehaviour
         if (go.GetComponent<plyrObj>().ID == saveManager.plyr.ID)
         {
             plyr = go.GetComponent<plyrObj>();
+<<<<<<< Updated upstream
+=======
+            plyr.stmn = 100;
+            if (plyr.hlth == 0)
+            {
+                plyr.hlth = 1;
+            }
+>>>>>>> Stashed changes
         }
 
         plyr.transform.position = this.transform.position;
@@ -22,6 +30,7 @@ public class plyrSpawn : MonoBehaviour
 
     private void OnDestroy()
     {
+        inGameCanvas.inGame = false;
         saveManager.plyr.DestroyChild();
     }
 

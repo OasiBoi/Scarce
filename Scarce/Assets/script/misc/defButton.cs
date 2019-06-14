@@ -27,7 +27,6 @@ public class defButton : MonoBehaviour
 
     public void ToScene(string i)
     {
-        saveManager.Save();
         SceneManager.LoadScene(i);
     }
 

@@ -95,7 +95,11 @@ Transform:
   m_GameObject: {fileID: 9202669446518460326}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream:Scarce/Scarce rep folder/Scarce/Assets/objects or whatever/collectibles/XP.prefab
   m_LocalScale: {x: 1, y: 1, z: 1}
+=======
+  m_LocalScale: {x: 0.45, y: 0.45, z: 1}
+>>>>>>> Stashed changes:Scarce/Assets/objects or whatever/collectibles/stmn.prefab
   m_Children: []
   m_Father: {fileID: 9202669447292526985}
   m_RootOrder: 0
@@ -242,7 +246,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &7149205485345628233
 SphereCollider:
@@ -255,7 +259,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.41
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7694703969563672460
 Rigidbody:

@@ -53,8 +53,14 @@ MonoBehaviour:
   xp: 0
   hlth: 0
   stmn: 0
+<<<<<<< Updated upstream
   moveSpd: 0
   jumpStr: 0
+=======
+  subfac: {x: 0.1, y: 0.25}
+  moveSpd: 1
+  jumpStr: 15
+>>>>>>> Stashed changes
   ammo: 0
   money: 0
   shield: 0

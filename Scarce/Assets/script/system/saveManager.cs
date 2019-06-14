@@ -61,6 +61,10 @@ public class saveManager : MonoBehaviour
         plyr.hlth = 100;
         plyr.xp = 0;
         plyr.money = 1000;
+<<<<<<< Updated upstream
+=======
+        plyr.jumpStr = 15;
+>>>>>>> Stashed changes
         plyr.moveSpd = 1;
         plyr.shield = 3;
         SceneManager.LoadScene("EnterName");

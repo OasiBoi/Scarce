@@ -56,7 +56,24 @@ public class plyrObj : MonoBehaviour
             {
                 stmn -= .01f;
             }
+<<<<<<< Updated upstream
             else { hlth -= .01f; }
+=======
+            else
+            {
+                if (hlth > 1)
+                {
+                    hlth -= subfac.y;
+                }
+            }
+        }
+        else
+        {
+            if (stmn < 100)
+            {
+                stmn += subfac.x / 2;
+            }
+>>>>>>> Stashed changes
         }
 
         if (hlth <= 0)

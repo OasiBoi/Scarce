@@ -33,6 +33,18 @@ public class hitCollider : MonoBehaviour
             int p = xp.points;
             player.CollectXp(p);
         }
+<<<<<<< Updated upstream
+=======
+        if (other.GetComponent("stmnObj"))
+        {
+            stmnObj stmn = other.GetComponent<stmnObj>();
+            int s = stmn.points;
+            player.CollectStmn(s);
+        }
+        if (other.GetComponent("deadZone")){
+            player.hlth = 0;
+        }
+>>>>>>> Stashed changes
     }
 
 }
