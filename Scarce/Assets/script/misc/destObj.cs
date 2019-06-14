@@ -7,6 +7,7 @@ public class destObj : MonoBehaviour
     public int health = 5;
 
     public GameObject xp;
+    public GameObject stmn;
     public GameObject [] coin = new GameObject [3];
     public int dropNum;
 
@@ -40,6 +41,10 @@ public class destObj : MonoBehaviour
                 Instantiate(coin[2], transform.position + pos[p], coin[2].transform.rotation);
             }
             Instantiate(xp, transform.position + pos[p], transform.rotation);
+            if (i % 2 == 0)
+            {
+                Instantiate(stmn, transform.position + pos[p], transform.rotation);
+            }
             i--;
         }
     }

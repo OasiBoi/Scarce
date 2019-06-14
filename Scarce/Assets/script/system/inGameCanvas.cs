@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class inGameCanvas : MonoBehaviour
 {
-    bool inGame = false;
+    public static bool inGame = false;
     private void Update()
     {
         int i = SceneManager.GetActiveScene().buildIndex;
 
+
+        //load name input if in name input screen
         if (SceneManager.GetActiveScene().name == "EnterName")
         {
             transform.GetChild(2).gameObject.SetActive(true);
@@ -19,6 +21,7 @@ public class inGameCanvas : MonoBehaviour
             transform.GetChild(2).gameObject.SetActive(false);
         }
 
+        //load menu if in start screen
         if (SceneManager.GetActiveScene().name == "menu")
         {
             transform.GetChild(0).gameObject.SetActive(true);
@@ -28,14 +31,31 @@ public class inGameCanvas : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(false);
         }
 
-        if (SceneManager.GetActiveScene().name == "test")
+        //load store screen if in store scene
+        if (SceneManager.GetActiveScene().name == "store")
         {
-            inGame = true;
+            transform.GetChild(5).gameObject.SetActive(true);
+        }
+        else
+        {
+            transform.GetChild(5).gameObject.SetActive(false);
         }
 
+        //show game select if in game select scene
+        if (SceneManager.GetActiveScene().name == "GameModes")
+        {
+            transform.GetChild(6).gameObject.SetActive(true);
+        }
+        else
+        {
+            transform.GetChild(6).gameObject.SetActive(false);
+        }
+
+        //show pause screen if in game
         if (inGame)
         {
             transform.GetChild(3).gameObject.SetActive(true);
+            transform.GetChild(4).gameObject.SetActive(true);
 
             if (Input.GetButtonDown("Submit"))
             {
@@ -53,6 +73,7 @@ public class inGameCanvas : MonoBehaviour
         else
         {
             transform.GetChild(3).gameObject.SetActive(false);
+            transform.GetChild(4).gameObject.SetActive(false);
         }
     }
 }

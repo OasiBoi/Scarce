@@ -16,6 +16,8 @@ public class plyrObj : MonoBehaviour
     public int xp;
     public float hlth;
     public float stmn;
+    public Vector2 subfac = new Vector2();
+
     public int moveSpd;
     public int jumpStr;
     public int ammo;
@@ -48,27 +50,30 @@ public class plyrObj : MonoBehaviour
         my = Mathf.Clamp(moveY, -1, 1);
         rx = Mathf.Clamp(RotX, -1, 1);
         ry = Mathf.Clamp(RotY, -1, 1);
+        //move player
+        player.Move(mx * 10, rx * 3, my * 10, moveSpd);
 
-        player.Move(mx * 10, rx, my * 10, moveSpd);
+        //subtract stamina, then health when moving
         if (mx != 0 || my != 0)
         {
             if (stmn > 0)
             {
-                stmn -= .01f;
+                stmn -= subfac.x;
             }
-            else { hlth -= .01f; }
+            else { hlth -= subfac.y; }
         }
 
-        if (hlth <= 0)
+        //move camera
+        if(ry > 0.3 || ry < -0.3)
         {
-            defButton.ToSceneStat("menu");
+            camObj.CamRot(ry * 3, moveSpd);
         }
-
-        if (camObj.rotOk)
+        if (rx > 0.3 || rx < -0.3)
         {
-            camObj.CamRot(ry * 3f, moveSpd);
+            player.Move(0, rx * 3, 0, moveSpd);
         }
 
+        //jump
         if (Input.GetButtonDown("Jump"))
         {
             if (jumpOk)
@@ -78,6 +83,7 @@ public class plyrObj : MonoBehaviour
             }
         }
 
+        //shoot
         if (Input.GetButtonDown("Fire2"))
         {
             if (ammo > 0)
@@ -93,6 +99,10 @@ public class plyrObj : MonoBehaviour
         Destroy(transform.GetChild(0).gameObject);
     }
 
+    public void CollectCoin(int c)
+    {
+        money += c;
+    }
     public void CollectAmmo(int a)
     {
         ammo += a;
@@ -101,12 +111,12 @@ public class plyrObj : MonoBehaviour
     {
         hlth += h;
     }
-    public void CollectCoin(int c)
-    {
-        money += c;
-    }
     public void CollectXp(int p)
     {
         xp += p;
+    }
+    public void CollectStmn(int p)
+    {
+        stmn += p;
     }
 }

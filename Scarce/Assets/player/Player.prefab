@@ -53,8 +53,9 @@ MonoBehaviour:
   xp: 0
   hlth: 0
   stmn: 0
+  subfac: {x: 0.1, y: 0.25}
   moveSpd: 0
-  jumpStr: 0
+  jumpStr: 10
   ammo: 0
   money: 0
   shield: 0

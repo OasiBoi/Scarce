@@ -1,11 +1,13 @@
 Win64
 PlayerPath?
-C:/Users/oasi_/Desktop/games/Scarce/Scarce/test builds/0.0.001 rough test build (w inverted triggers)/A/Scarce.exe
+C:/Users/oasi_/Desktop/games/Scarce/Scarce/Scarce rep folder/test builds/0.0.002 prototyping (w inverted triggers)/Scarce.exe
 SceneListBegin?
 Assets/Scenes/Intro.unity
 Assets/Scenes/menu.unity
+Assets/Scenes/store.unity
 Assets/Scenes/test.unity
 Assets/Scenes/EnterName.unity
+Assets/Scenes/GameModes.unity
 SceneListEnd?
 984dcc0ba3707b7691fbdca8ff508d28 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 01aa15e337e3a9c62f15153dfac6d589 Unity.TextMeshPro.dll:TMPro.TMP_Dropdown
@@ -116,7 +118,7 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 9b895dcabbc1faf095c000c32d471fd0 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 5887ef1bc706b22b773d253fd443ceef UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-5ff9ffb00bfaf8fccfb5786fd83b0967 Assembly-CSharp.dll:.camObj
+3ad96200a326bfd837d450348ccc7026 Assembly-CSharp.dll:.camObj
 303ad70ce203ad874efe2965d0fbcff9 Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsEventTracker
 7fb9de8dcf73854b6b328eca1f7a6e6d Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsTracker
 94017dcc9f00fe671ea7dc427b4da011 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
@@ -194,17 +196,17 @@ fbbf64dcbe0662e3eda1dec45ea8f895 Vuforia.UnityExtensions.dll:Vuforia.WireframeBe
 734ee94393011553c931742efc9f0108 Assembly-CSharp.dll:.ammoSpawner
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 3f27d9ccc3668eac57014f229d2307ba Assembly-CSharp.dll:.persistentObj
-bda57a186046f4c97c511148f621c70c Assembly-CSharp.dll:.plyrObj
+dea3b9980d3dffba6a7c2aad405d1b8b Assembly-CSharp.dll:.plyrObj
 104de85463d22a3e3af8f2846c311214 Assembly-CSharp.dll:.cam
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.Analytics.Editor.dll:UnityEditor.Analytics.AnalyticsEventTrackerEditor
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.getKeyKey
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.NameSet
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.plyrSpawn
-d24fbdb20ccedda6f84de3312b01559f Assembly-CSharp.dll:.destObj
+fe5063527cdba80865991da419d27cd1 Assembly-CSharp.dll:.destObj
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
-da726294e3eeea0aa2547ed07430a4eb Assembly-CSharp.dll:.igui
-52c5773b9c1f00f2502b9df0c694c079 Assembly-CSharp.dll:.actions
+14e3934be2fa005c74fbabba91bb5ab9 Assembly-CSharp.dll:.igui
+c7faad5ded3055716c4bdef4ad735515 Assembly-CSharp.dll:.actions
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.getTheKey
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -322,3 +324,6 @@ cd67f3e1e9ccac6db86c1564cea5a827 Vuforia.UnityExtensions.dll:Vuforia.VuforiaConf
 69167579cf7fcbb2676fc1e675963dcd Vuforia.UnityExtensions.dll:Vuforia.VuMarkBehaviour
 fbbf64dcbe0662e3eda1dec45ea8f895 Vuforia.UnityExtensions.dll:Vuforia.WireframeBehaviour
 71bb6a6b6c8f052f948db64c7dd3ca4f Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
+b25524c239263d1d21c2dc226c04ec77 Assembly-CSharp.dll:.store
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.storeInfo
+a919cc31e8704742b240d51d0f90c022 Assembly-CSharp.dll:.stmnObj
