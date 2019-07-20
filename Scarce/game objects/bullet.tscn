@@ -1,0 +1,105 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://scripts/bullet.gd" type="Script" id=1]
+[ext_resource path="res://textures/light.png" type="Texture" id=2]
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=11]
+trail_size_modifier = SubResource( 6 )
+emission_shape = 1
+emission_sphere_radius = 0.5
+spread = 70.3
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = -1.#QNAN
+linear_accel = 10.8
+scale = 0.5
+scale_random = 0.42
+scale_curve = SubResource( 4 )
+
+[sub_resource type="SpatialMaterial" id=8]
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 1
+params_billboard_keep_scale = true
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="QuadMesh" id=9]
+material = SubResource( 8 )
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 1, 0, 0, 1, 1, 0.726563, 0, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+trail_size_modifier = SubResource( 6 )
+emission_shape = 1
+emission_sphere_radius = 0.5
+spread = 70.3
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = -1.#QNAN
+linear_accel = 10.8
+radial_accel = 25.0
+scale = 0.5
+scale_random = 0.42
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="SphereMesh" id=12]
+radius = 0.25
+height = 0.5
+
+[sub_resource type="SphereShape" id=10]
+radius = 0.25
+
+[node name="bullet" type="KinematicBody"]
+script = ExtResource( 1 )
+spd = 1
+dmg = 5
+
+[node name="particles" type="Particles" parent="."]
+amount = 10
+process_material = SubResource( 11 )
+draw_pass_1 = SubResource( 9 )
+
+[node name="particles2" type="Particles" parent="."]
+emitting = false
+amount = 10
+one_shot = true
+speed_scale = 10.0
+explosiveness = 1.0
+process_material = SubResource( 7 )
+draw_pass_1 = SubResource( 9 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Timer2" type="Timer" parent="."]
+
+[node name="Area" type="Area" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Area"]
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 10 )
+
+[connection signal="tree_entered" from="." to="." method="_on_bullet_tree_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_bullet_tree_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="tree_entered" from="Area" to="." method="_on_Area_tree_entered"]
