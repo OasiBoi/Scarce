@@ -18,10 +18,10 @@ func _process(delta):
 				i = get_child_count()
 			if i > 0:
 				i -= 1
-			print(i)
+#			print(i)
 		if Input.is_action_just_pressed("ui_down"):
 			if i < get_child_count() + 1:
 				i += 1
 			if i == get_child_count():
 				i = 0
-			print(i)
+#			print(i)

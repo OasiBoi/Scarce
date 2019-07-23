@@ -6,9 +6,3 @@
 [node name="TestOffline" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="Position3D" parent="spawns" index="0"]
-transform = Transform( 0.998647, -0.0519951, 0, 0.0519951, 0.998647, 0, 0, 0, 1, 8.18763, 17.8669, 7.3554 )
-
-[node name="Position3D2" parent="spawns" index="1"]
-transform = Transform( 0.998647, -0.0519951, 0, 0.0519951, 0.998647, 0, 0, 0, 1, 12.661, 11.0214, -30.1292 )
-

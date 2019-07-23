@@ -20,18 +20,18 @@ custom_constants/separation = 48
 alignment = 1
 
 [node name="name" type="LineEdit" parent="CanvasLayer/buttons"]
-margin_top = 238.0
+margin_top = 241.0
 margin_right = 321.0
-margin_bottom = 262.0
+margin_bottom = 265.0
 align = 1
 placeholder_text = "WHATS YO NAME"
 caret_blink = true
 
 [node name="Button" parent="CanvasLayer/buttons" instance=ExtResource( 3 )]
 margin_left = 0.0
-margin_top = 310.0
+margin_top = 313.0
 margin_right = 321.0
-margin_bottom = 362.0
+margin_bottom = 359.0
 text = "ESKETIT"
 script = ExtResource( 4 )
 

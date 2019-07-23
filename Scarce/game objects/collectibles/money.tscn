@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://game objects/collectibles/basecollectible.tscn" type="PackedScene" id=1]
+[ext_resource path="res://textures/bitcoin-3125488__340.png" type="Texture" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 2, 2, 1 )
+
+[node name="money" instance=ExtResource( 1 )]
+stmn = 0
+money = 25
+
+[node name="MeshInstance" parent="." index="1"]
+material/0 = SubResource( 1 )
+

@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/stats.gd" type="Script" id=1]
+[ext_resource path="res://meta objects/Label.tscn" type="PackedScene" id=2]
+[ext_resource path="res://textures/crosshair-simple-512.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 1, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 0, 0, 1 )
+
+[node name="stats" type="CanvasLayer"]
+editor/display_folded = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 300.0 ],
+"_edit_vertical_guides_": [ 512.0 ]
+}
+
+[node name="hlthStmn" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 960.0
+margin_top = 70.0
+margin_right = 246.0
+rect_scale = Vector2( -1, 1 )
+custom_constants/separation = 24
+
+[node name="stmn" type="ProgressBar" parent="hlthStmn"]
+margin_right = 310.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+value = 100.0
+percent_visible = false
+
+[node name="hlth" type="ProgressBar" parent="hlthStmn"]
+margin_top = 44.0
+margin_right = 310.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 20 )
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+value = 100.0
+percent_visible = false
+
+[node name="xpMoneyAmmo" type="VBoxContainer" parent="."]
+margin_left = 70.0
+margin_top = 70.0
+margin_right = 380.0
+margin_bottom = 198.0
+
+[node name="XP" parent="xpMoneyAmmo" instance=ExtResource( 2 )]
+margin_right = 310.0
+margin_bottom = 40.0
+text = "XP"
+align = 0
+
+[node name="Money" parent="xpMoneyAmmo" instance=ExtResource( 2 )]
+margin_top = 44.0
+margin_right = 310.0
+margin_bottom = 84.0
+text = "Money"
+align = 0
+
+[node name="ammo" parent="xpMoneyAmmo" instance=ExtResource( 2 )]
+margin_top = 88.0
+margin_right = 310.0
+margin_bottom = 128.0
+text = "Ammo"
+align = 0
+
+[node name="crosshair-simple-512" type="Sprite" parent="."]
+position = Vector2( 512, 300 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 3 )
+offset = Vector2( 10.3, 10.65 )
+

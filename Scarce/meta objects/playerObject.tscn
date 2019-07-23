@@ -6,5 +6,9 @@
 script = ExtResource( 1 )
 spd = 200
 jmp = 20
-hlth = 100
+hlth = 100.0
+money = 50
+xp = 100
+ammo = 10
+SubFac = Vector2( 0.1, 0.1 )
 

@@ -1,32 +1,23 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://game objects/stats.gd" type="Script" id=2]
-[ext_resource path="res://meta objects/Label.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scripts/bulletSpawn.gd" type="Script" id=4]
-[ext_resource path="res://textures/space.jpg" type="Texture" id=5]
+[ext_resource path="res://game objects/stats.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/bulletSpawn.gd" type="Script" id=3]
+[ext_resource path="res://textures/space.jpg" type="Texture" id=4]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0, 0, 1, 1 )
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 4 )
 
-[sub_resource type="StyleBoxEmpty" id=2]
-
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 1, 0, 0, 1 )
-
-[sub_resource type="SpatialMaterial" id=4]
-albedo_texture = ExtResource( 5 )
-
-[sub_resource type="CapsuleMesh" id=5]
-material = SubResource( 4 )
+[sub_resource type="CapsuleMesh" id=2]
+material = SubResource( 1 )
 radius = 0.5
 mid_height = 1.5
 
-[sub_resource type="CapsuleShape" id=6]
+[sub_resource type="CapsuleShape" id=3]
 radius = 0.5
 height = 1.5
 
-[sub_resource type="CapsuleShape" id=7]
+[sub_resource type="CapsuleShape" id=4]
 radius = 0.5
 
 [node name="Player" type="KinematicBody"]
@@ -39,64 +30,7 @@ jump = 15
 sens = 5
 look_limits = Vector2( 90, -75 )
 
-[node name="stats" type="CanvasLayer" parent="."]
-script = ExtResource( 2 )
-
-[node name="hlthStmn" type="VBoxContainer" parent="stats"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 960.0
-margin_top = 70.0
-margin_right = 246.0
-rect_scale = Vector2( -1, 1 )
-custom_constants/separation = 24
-
-[node name="stmn" type="ProgressBar" parent="stats/hlthStmn"]
-margin_right = 310.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 0, 20 )
-custom_styles/fg = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-percent_visible = false
-
-[node name="hlth" type="ProgressBar" parent="stats/hlthStmn"]
-margin_top = 44.0
-margin_right = 310.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 0, 20 )
-custom_styles/fg = SubResource( 3 )
-custom_styles/bg = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-percent_visible = false
-
-[node name="xpMoneyAmmo" type="VBoxContainer" parent="stats"]
-editor/display_folded = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 70.0
-margin_top = 70.0
-margin_right = -512.0
-
-[node name="XP" parent="stats/xpMoneyAmmo" instance=ExtResource( 3 )]
-margin_right = 442.0
-margin_bottom = 46.0
-text = "XP"
-align = 0
-
-[node name="Money" parent="stats/xpMoneyAmmo" instance=ExtResource( 3 )]
-margin_top = 50.0
-margin_right = 442.0
-margin_bottom = 96.0
-text = "Money"
-align = 0
-
-[node name="ammo" parent="stats/xpMoneyAmmo" instance=ExtResource( 3 )]
-margin_top = 100.0
-margin_right = 442.0
-margin_bottom = 146.0
-text = "ammo"
-align = 0
+[node name="stats" parent="." instance=ExtResource( 2 )]
 
 [node name="head" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
@@ -107,27 +41,29 @@ current = true
 
 [node name="bulletSpawn" type="Position3D" parent="head/Camera"]
 transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, -1.09324e-007, 0, -1.25052 )
-script = ExtResource( 4 )
+script = ExtResource( 3 )
+
+[node name="gunCoolDown" type="Timer" parent="head/Camera"]
+wait_time = 0.1
+one_shot = true
+autostart = true
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 0, 0 )
-mesh = SubResource( 5 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 0, 0 )
-shape = SubResource( 6 )
-
-[node name="gunCoolDown" type="Timer" parent="."]
-autostart = true
+shape = SubResource( 3 )
 
 [node name="Area" type="Area" parent="."]
 editor/display_folded = true
 
 [node name="CollisionShape2" type="CollisionShape" parent="Area"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 0, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [connection signal="tree_entered" from="." to="." method="_on_Player_tree_entered"]
-[connection signal="timeout" from="gunCoolDown" to="head/Camera/bulletSpawn" method="_on_gunCoolDown_timeout"]
+[connection signal="timeout" from="head/Camera/gunCoolDown" to="head/Camera/bulletSpawn" method="_on_gunCoolDown_timeout"]
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

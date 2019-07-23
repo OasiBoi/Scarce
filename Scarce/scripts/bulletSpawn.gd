@@ -1,6 +1,6 @@
 extends Position3D
 
-onready var bullet = preload("res://game objects/bullet.tscn") 
+onready var bullet = preload("res://game objects/basebullet.tscn") 
 var shootOk = true
 
 var b
@@ -17,6 +17,7 @@ func _process(delta):
 			b.direction = global_transform.basis.z
 			b.id = playerObject.ID
 			shootOk = false
+			get_parent().get_child(1).start()
 
 func _on_gunCoolDown_timeout():
 	shootOk = true

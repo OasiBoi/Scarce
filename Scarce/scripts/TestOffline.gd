@@ -1,11 +1,16 @@
 extends Spatial
 
 # Declare member variables here. Examples:
-# var a = 2
+var host = NetworkedMultiplayerENet.new()
 # var b = "text"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var res = host.create_server(4242, 2)
+	if res != OK:
+		print("Error creating server")
+		return
+	get_tree().set_network_peer(host)
 	var thisPlayer = get_parent().get_child(0)
 	thisPlayer.spawnPlayer($spawns/Position3D.translation)
 	thisPlayer.set_name(str(get_tree().get_network_unique_id()))
